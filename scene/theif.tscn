@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://rwcj1uwyoccd"]
+[gd_scene load_steps=15 format=3 uid="uid://rwcj1uwyoccd"]
 
 [ext_resource type="Texture2D" uid="uid://xh4017k8o4ox" path="res://asset/character/theif_run.png" id="1_8l5qf"]
 [ext_resource type="Texture2D" uid="uid://3oia4gfomllt" path="res://asset/character/theif_attack.png" id="1_c5max"]
@@ -15,6 +15,14 @@ region = Rect2(101, 0, 101, 47)
 [sub_resource type="AtlasTexture" id="AtlasTexture_jhw0m"]
 atlas = ExtResource("1_c5max")
 region = Rect2(202, 0, 101, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wetx3"]
+atlas = ExtResource("1_8l5qf")
+region = Rect2(0, 0, 107, 117)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fhmu"]
+atlas = ExtResource("1_8l5qf")
+region = Rect2(214, 0, 107, 117)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c5max"]
 atlas = ExtResource("1_8l5qf")
@@ -46,6 +54,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_wetx3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fhmu")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_c5max")
 }, {
 "duration": 1.0,
@@ -70,17 +89,17 @@ size = Vector2(49, 39)
 script = ExtResource("1_pdlmw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(34, 2)
+position = Vector2(39, -11)
 sprite_frames = SubResource("SpriteFrames_wqdxl")
-animation = &"attack"
-frame_progress = 0.5979177
+animation = &"idle"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_6loqm")
 
-[node name="hitbox" type="Area2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="."]
 scale = Vector2(0.35748696, 0.43300897)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(1.5, -0.5)
 shape = SubResource("RectangleShape2D_pdlmw")
